@@ -33,7 +33,8 @@ namespace SimpleFileStorage.ObjectStorage
                     FileID = fileID,
                     Data = memoryStream.ToArray()
                 };
-            } catch (AmazonS3Exception ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+            }
+            catch (AmazonS3Exception ex) when (ex.StatusCode == HttpStatusCode.NotFound)
             {
                 return null;
             }

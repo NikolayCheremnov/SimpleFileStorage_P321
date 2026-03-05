@@ -21,7 +21,7 @@ namespace SimpleFileStorage.Postgres
         public async Task Insert(FileMetadata metadata)
         {
             await _db.Metadatas.AddAsync(metadata);
-            await _db.SaveChangesAsync();   
+            await _db.SaveChangesAsync();
         }
 
         [Obsolete("use ObjectStorage.FileS3Storage instead")]

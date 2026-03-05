@@ -17,7 +17,7 @@ namespace SimpleFileStorage.ObjectStorage
             // TODO: прочитать про env vars (environment variables - переменные окружения)
             string s3ConnectionProfile = Environment.GetEnvironmentVariable("S3_OPTIONS_PROFILE") ?? "default";
             IConfigurationSection s3Options = _config.GetSection("S3Options").GetSection(s3ConnectionProfile);
-            
+
             // подготовим конфигурацию s3
             AmazonS3Config config = new AmazonS3Config
             {
