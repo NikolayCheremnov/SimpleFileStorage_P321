@@ -18,8 +18,16 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: No implementation
-        run: echo "not implemented"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Restore
+        run: dotnet restore
+      - name: Lint (verify no changes)
+        run: dotnet format --verify-no-changes
   # выполнение юнит-тестов
   test:
     runs-on: ubuntu-latest
