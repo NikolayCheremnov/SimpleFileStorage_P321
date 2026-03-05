@@ -1,0 +1,34 @@
+# имя workflow
+name: Example workflow
+
+# тригер запуска
+on:
+  # при вливании в master
+  push:
+    branches: [master]
+  # при открытии pull request-а на master
+  pull_request:
+    branches: [master]
+  # вручную
+  workflow_dispatch:
+
+# этапы workflow - они же "джобы" (jobs)
+jobs:
+  # выполнение линтера (запуск статического анализа кода)
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No implementation
+        run: echo "not implemented"
+  # выполнение юнит-тестов
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No implementation
+        run: echo "not implemented"
+  # сборка артефакта
+  build-windows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: No implementation
+        run: echo "not implemented"
