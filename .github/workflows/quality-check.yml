@@ -38,5 +38,22 @@ jobs:
   build-windows:
     runs-on: ubuntu-latest
     steps:
-      - name: No implementation
-        run: echo "not implemented"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - name: Publish (win-x64)
+        run: |
+          dotnet publish SimpleFileStorage/SimpleFileStorage.csproj -c Release -r win-x64 --self-contained false -o bin/win-x64
+      - name: Create zip artifact
+        run: |
+          mkdir -p bin
+          cd bin
+          zip -r win-x64.zip win-x64
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-x64
+          path: bin/win-x64.zip
