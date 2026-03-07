@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using SimpleFileStorage.Model;
 using SimpleFileStorage.ObjectStorage;
 using SimpleFileStorage.Postgres;
-using SimpleFileStorage.Stub;
 
 var builder = WebApplication.CreateBuilder(args);
 

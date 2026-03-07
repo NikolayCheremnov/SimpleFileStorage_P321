@@ -18,6 +18,11 @@ namespace SimpleFileStorage.Postgres
             return await _db.Metadatas.FirstOrDefaultAsync(md => md.FileID == fileID);
         }
 
+        public async Task<List<FileMetadata>> GetAll()
+        {
+            return await _db.Metadatas.ToListAsync();
+        }
+
         public async Task Insert(FileMetadata metadata)
         {
             await _db.Metadatas.AddAsync(metadata);

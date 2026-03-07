@@ -68,5 +68,11 @@
             }
             return data;
         }
+
+        // GetAllFilesMetadata - получить метаданные всех файлов
+        public async Task<List<FileMetadata>> GetAllFilesMetadata()
+        {
+            return await _metadatas.GetAll();
+        }
     }
 }
