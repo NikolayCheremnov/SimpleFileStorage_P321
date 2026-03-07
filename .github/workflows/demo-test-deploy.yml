@@ -3,9 +3,6 @@ name: Deploy on demo-test server
 on:
   push:
     branches: [ master ]
-  pull_request:
-    # TODO: убрать перед вливанием
-    branches: [ master ]
   workflow_dispatch:
 
 jobs:
